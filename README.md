@@ -251,6 +251,12 @@ Optional live-news configuration:
 NEWSAPI_KEY=your_newsapi_key
 ```
 
+For production, configure the frontend origin allowed to call the API:
+
+```dotenv
+CORS_ORIGINS=https://your-project.vercel.app
+```
+
 Install and run:
 
 ```bash
@@ -325,6 +331,7 @@ curl http://localhost:8001/api/recommend/explain
 - Never commit `backend/.env`, API keys, or virtual environments.
 - Use `backend/.env.example` as the safe configuration template.
 - The frontend exposes only `VITE_` variables to the browser; never put Groq, NewsAPI, or database credentials in `frontend/.env`.
+- Set `CORS_ORIGINS` on the backend to the exact deployed Vercel URL (or a comma-separated list of approved frontend origins). Do not use `*` in production.
 - `backend/venv/`, Python caches, frontend `node_modules/`, and frontend build output are ignored by Git.
 
 For additional frontend-specific notes, see [frontend/README.md](./frontend/README.md) and [frontend/PROJECT_REPORT.md](./frontend/PROJECT_REPORT.md).

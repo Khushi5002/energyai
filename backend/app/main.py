@@ -1,3 +1,5 @@
+import os
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -15,10 +17,19 @@ from app.services.risk_scorer import (
 
 app = FastAPI(title="Energy Resilience AI")
 
+# Comma-separated origins allow each environment to explicitly control which
+# frontend deployments can call the API. Keep local development working by
+# default; set CORS_ORIGINS to the production Vercel URL on Render.
+cors_origins = [
+    origin.strip()
+    for origin in os.getenv("CORS_ORIGINS", "http://localhost:5173").split(",")
+    if origin.strip()
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
+    allow_origins=cors_origins,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
