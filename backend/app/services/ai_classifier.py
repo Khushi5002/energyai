@@ -12,7 +12,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+# GROQ_API_KEY is the documented name.  Accept the prior mixed-case spelling
+# as well so existing local .env files continue to work on case-sensitive OSes.
+api_key = os.environ.get("GROQ_API_KEY") or os.environ.get("Groq_API_KEY")
+client = Groq(api_key=api_key) if api_key else None
 MODEL = "openai/gpt-oss-120b"
 
 
@@ -23,6 +26,11 @@ def score_topic(topic_label: str, headlines: list[str]) -> float:
     """
     if not headlines:
         return 0.3  # neutral-low default if we truly have no data
+
+    # Keep the API available for local demos when no Groq key is configured.
+    # The risk scorer will use its neutral fallback values in that case.
+    if client is None:
+        return 0.3
 
     headlines_text = "\n".join(f"- {h}" for h in headlines)
 
