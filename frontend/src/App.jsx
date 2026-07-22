@@ -54,14 +54,14 @@ export default function App() {
   }));
 
   return (
-    <div className="min-h-screen p-6 lg:p-10 max-w-7xl mx-auto">
+    <div className="min-h-screen max-w-7xl mx-auto px-4 py-6 sm:px-6 sm:py-8 lg:p-10">
       {/* Header */}
-      <header className="flex items-center justify-between mb-10 pb-5 border-b" style={{ borderColor: "var(--panel-border)" }}>
+      <header className="flex flex-col items-start justify-between gap-4 mb-6 pb-5 border-b sm:mb-10 sm:flex-row sm:items-center" style={{ borderColor: "var(--panel-border)" }}>
         <div>
-          <h1 className="font-display text-2xl font-semibold tracking-tight">
+          <h1 className="font-display text-xl font-semibold tracking-tight sm:text-2xl">
             ENERGY RESILIENCE <span style={{ color: "var(--accent-amber)" }}>COMMAND</span>
           </h1>
-          <p className="text-xs text-zinc-500 mt-1 font-mono-data">
+          <p className="text-[11px] leading-relaxed text-zinc-500 mt-1 font-mono-data">
             INDIA CRUDE SUPPLY · AUTONOMOUS PROCUREMENT INTELLIGENCE
           </p>
         </div>
@@ -72,20 +72,20 @@ export default function App() {
       </header>
 
       {/* Hero row: Gauge + breakdown */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-        <div className="rounded-xl p-6 flex flex-col items-center justify-center" style={{ background: "var(--panel)", border: "1px solid var(--panel-border)" }}>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
+        <div className="rounded-xl p-5 sm:p-6 flex flex-col items-center justify-center" style={{ background: "var(--panel)", border: "1px solid var(--panel-border)" }}>
           <RiskGauge score={global?.score ?? 0} label="GLOBAL OIL SUPPLY RISK" />
           <p className="text-[11px] text-zinc-600 text-center mt-3 leading-relaxed max-w-[220px]">
             Weighted from: route risk (35%) + country risk (30%) + OPEC instability (20%) + price volatility (15%)
           </p>
         </div>
 
-        <div className="lg:col-span-2 rounded-xl p-6" style={{ background: "var(--panel)", border: "1px solid var(--panel-border)" }}>
-          <div className="flex items-center justify-between mb-4">
+        <div className="lg:col-span-2 rounded-xl p-5 sm:p-6" style={{ background: "var(--panel)", border: "1px solid var(--panel-border)" }}>
+          <div className="flex flex-col items-start justify-between gap-3 mb-4 sm:flex-row sm:items-center">
             <h2 className="font-display text-sm tracking-wide text-zinc-400">RISK BREAKDOWN</h2>
             <button
               onClick={forceRefresh}
-              className="text-xs font-mono-data px-3 py-1.5 rounded-lg border transition"
+              className="w-full text-xs font-mono-data px-3 py-2 rounded-lg border transition sm:w-auto"
               style={{ borderColor: "var(--accent-amber)", color: "var(--accent-amber)" }}
             >
               {refreshing ? "REFRESHING..." : "↻ REFRESH LIVE DATA"}
@@ -130,8 +130,8 @@ export default function App() {
       </div>
 
       {/* Country + Route risk bars */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        <div className="rounded-xl p-6" style={{ background: "var(--panel)", border: "1px solid var(--panel-border)" }}>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
+        <div className="rounded-xl p-4 sm:p-6" style={{ background: "var(--panel)", border: "1px solid var(--panel-border)" }}>
           <InfoLabel
             label={<span className="font-display text-sm tracking-wide text-zinc-400">SUPPLIER COUNTRY RISK</span>}
             tooltip="Each country's score = a fixed baseline (based on general political/sanctions history) + a live adjustment from today's news. Scale: 0-100, higher = riskier to source from right now."
@@ -150,7 +150,7 @@ export default function App() {
           </ResponsiveContainer>
         </div>
 
-        <div className="rounded-xl p-6" style={{ background: "var(--panel)", border: "1px solid var(--panel-border)" }}>
+        <div className="rounded-xl p-4 sm:p-6" style={{ background: "var(--panel)", border: "1px solid var(--panel-border)" }}>
           <InfoLabel
             label={<span className="font-display text-sm tracking-wide text-zinc-400">SHIPPING ROUTE RISK</span>}
             tooltip="Each chokepoint's score = live news severity × how critical that route is to global oil flow (e.g. Hormuz carries far more traffic than Cape, so equal news severity there scores higher)."
@@ -171,11 +171,11 @@ export default function App() {
       </div>
 
  {/* Supplier mix donut + Recommendations */}
-<div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+<div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
 
   {/* Supplier Mix */}
   <div
-    className="rounded-xl p-6"
+    className="rounded-xl p-4 sm:p-6"
     style={{
       background: "var(--panel)",
       border: "1px solid var(--panel-border)"

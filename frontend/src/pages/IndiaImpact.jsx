@@ -17,17 +17,17 @@ export default function IndiaImpact() {
 
   return (
     <div>
-      <header className="mb-8">
-        <h1 className="font-display text-2xl font-semibold">India Impact</h1>
-        <p className="text-xs text-zinc-500 mt-1 font-mono-data">
+      <header className="mb-6 sm:mb-8">
+        <h1 className="font-display text-xl font-semibold tracking-tight sm:text-2xl">India Impact</h1>
+        <p className="max-w-2xl text-xs leading-relaxed text-zinc-500 mt-1 font-mono-data">
           What today's risk level means for India's actual reserves and refining capacity
         </p>
       </header>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        <div className="rounded-xl p-6" style={{ background: "var(--panel)", border: "1px solid var(--panel-border)" }}>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
+        <div className="rounded-xl p-5 sm:p-6" style={{ background: "var(--panel)", border: "1px solid var(--panel-border)" }}>
           <div className="text-xs text-zinc-500 mb-2">STRATEGIC PETROLEUM RESERVE</div>
-          <div className="text-4xl font-mono-data font-semibold" style={{ color: "var(--accent-amber)" }}>{SPR_DAYS} days</div>
+          <div className="text-3xl sm:text-4xl font-mono-data font-semibold" style={{ color: "var(--accent-amber)" }}>{SPR_DAYS} days</div>
           <p className="text-xs text-zinc-500 mt-3 leading-relaxed">
             India's SPR provides {SPR_DAYS} days of national consumption cover. At the current global risk score
             ({global?.score ?? "—"}/100), sustained disruption at this severity would put meaningful pressure
@@ -35,9 +35,9 @@ export default function IndiaImpact() {
           </p>
         </div>
 
-        <div className="rounded-xl p-6" style={{ background: "var(--panel)", border: "1px solid var(--panel-border)" }}>
+        <div className="rounded-xl p-5 sm:p-6" style={{ background: "var(--panel)", border: "1px solid var(--panel-border)" }}>
           <div className="text-xs text-zinc-500 mb-2">IMPORT DEPENDENCE</div>
-          <div className="text-4xl font-mono-data font-semibold" style={{ color: "var(--accent-amber)" }}>88%</div>
+          <div className="text-3xl sm:text-4xl font-mono-data font-semibold" style={{ color: "var(--accent-amber)" }}>88%</div>
           <p className="text-xs text-zinc-500 mt-3 leading-relaxed">
             Share of India's crude oil that is imported, with historically 30-45% transiting the Strait of Hormuz —
             the single most-monitored chokepoint on this dashboard.
@@ -45,9 +45,10 @@ export default function IndiaImpact() {
         </div>
       </div>
 
-      <div className="rounded-xl p-6" style={{ background: "var(--panel)", border: "1px solid var(--panel-border)" }}>
+      <div className="rounded-xl p-4 sm:p-6" style={{ background: "var(--panel)", border: "1px solid var(--panel-border)" }}>
         <div className="text-xs text-zinc-500 mb-4 font-mono-data">REFINERY CAPACITY & CRUDE COMPATIBILITY RANGE</div>
-        <table className="w-full text-sm">
+        <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+        <table className="w-full min-w-[600px] text-sm">
           <thead>
             <tr className="text-left text-xs text-zinc-500 border-b" style={{ borderColor: "var(--panel-border)" }}>
               <th className="pb-3">Refinery</th>
@@ -67,6 +68,7 @@ export default function IndiaImpact() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

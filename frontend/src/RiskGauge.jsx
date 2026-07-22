@@ -21,7 +21,7 @@ export default function RiskGauge({ score = 0, label = "GLOBAL RISK" }) {
 
   return (
     <div className="flex flex-col items-center">
-      <svg viewBox="0 0 200 130" className="w-full max-w-xs">
+      <svg viewBox="0 0 200 130" className="w-full max-w-[220px] sm:max-w-xs">
         {/* Background arc zones */}
         <path d="M 12 100 A 88 88 0 0 1 76 22" fill="none" stroke="var(--accent-safe)" strokeWidth="10" strokeLinecap="round" opacity="0.35" />
         <path d="M 76 22 A 88 88 0 0 1 124 22" fill="none" stroke="var(--accent-warn)" strokeWidth="10" opacity="0.35" />
@@ -38,7 +38,7 @@ export default function RiskGauge({ score = 0, label = "GLOBAL RISK" }) {
       </svg>
 
       <div className="text-center -mt-4">
-        <div className="font-mono-data text-5xl font-semibold" style={{ color }}>
+        <div className="font-mono-data text-4xl sm:text-5xl font-semibold" style={{ color }}>
           {Math.round(score)}
         </div>
         <div className="text-xs tracking-widest text-zinc-500 mt-1 font-display">{label}</div>

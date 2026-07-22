@@ -17,16 +17,16 @@ export default function Recommendations() {
 
   return (
     <div>
-      <header className="mb-8 flex items-center justify-between">
+      <header className="mb-6 sm:mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
         <div>
-          <h1 className="font-display text-2xl font-semibold">Procurement Recommendations</h1>
-          <p className="text-xs text-zinc-500 mt-1 font-mono-data">
+          <h1 className="font-display text-xl font-semibold tracking-tight sm:text-2xl">Procurement Recommendations</h1>
+          <p className="max-w-2xl text-xs leading-relaxed text-zinc-500 mt-1 font-mono-data">
             AI-ranked sourcing options based on live risk, reliability, and refinery compatibility
           </p>
         </div>
         <button
           onClick={generate}
-          className="text-xs font-mono-data px-4 py-2 rounded-lg font-medium shrink-0"
+          className="w-full text-xs font-mono-data px-4 py-2.5 rounded-lg font-medium sm:w-auto shrink-0"
           style={{ background: "var(--accent-amber)", color: "#0B0E14" }}
         >
           {loading ? "ANALYZING..." : "GENERATE"}
@@ -34,19 +34,19 @@ export default function Recommendations() {
       </header>
 
       {recs.length === 0 && (
-        <div className="rounded-xl p-16 text-center text-zinc-600 text-sm font-mono-data" style={{ background: "var(--panel)", border: "1px solid var(--panel-border)" }}>
+        <div className="rounded-xl p-8 sm:p-16 text-center text-zinc-600 text-sm leading-relaxed font-mono-data" style={{ background: "var(--panel)", border: "1px solid var(--panel-border)" }}>
           Click "GENERATE" to run the procurement orchestrator against live risk data.
         </div>
       )}
 
       <div className="space-y-4">
         {recs.map((r, i) => (
-          <div key={i} className="rounded-xl p-5" style={{ background: "var(--panel)", border: "1px solid var(--panel-border)" }}>
+          <div key={i} className="rounded-xl p-4 sm:p-5" style={{ background: "var(--panel)", border: "1px solid var(--panel-border)" }}>
             <div className="flex justify-between items-start mb-2 flex-wrap gap-2">
-              <div>
+              <div className="min-w-0">
                 <span className="font-mono-data text-xs" style={{ color: "var(--accent-amber)" }}>#{i + 1}</span>
-                <span className="ml-2 font-semibold">{r.supplier}</span>
-                <span className="text-zinc-500 text-xs ml-2">({r.country})</span>
+                <span className="ml-2 font-semibold break-words">{r.supplier}</span>
+                <span className="text-zinc-500 text-xs ml-2 whitespace-nowrap">({r.country})</span>
               </div>
               <InfoLabel
                 label={<span className="font-mono-data text-xs text-zinc-500">composite score {r.composite_score}</span>}
@@ -54,7 +54,7 @@ export default function Recommendations() {
               />
             </div>
 
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex flex-wrap items-center gap-2 mb-3">
               <span className="text-[10px] uppercase tracking-wide text-zinc-600">via route:</span>
               {r.route_chokepoints?.length > 0 ? (
                 r.route_chokepoints.map((cp, idx) => (
@@ -65,7 +65,7 @@ export default function Recommendations() {
               ) : (
                 <span className="text-[11px] text-zinc-500">direct / no chokepoint</span>
               )}
-              <span className="text-[11px] text-zinc-600 ml-1">· {r.estimated_delivery_days} days ETA</span>
+              <span className="text-[11px] text-zinc-600 sm:ml-1">· {r.estimated_delivery_days} days ETA</span>
             </div>
 
             <div className="flex flex-wrap gap-3 mb-3 text-[11px] font-mono-data">
