@@ -1,0 +1,9 @@
+[{"name": "Saudi Aramco", "country": "Saudi Arabia", "iso": "SAU", "capacity_bpd": 12000000, "reliability": 0.95, "sanctioned": false},
+  {"name": "ADNOC", "country": "UAE", "iso": "ARE", "capacity_bpd": 4000000, "reliability": 0.93, "sanctioned": false},
+  {"name": "Rosneft", "country": "Russia", "iso": "RUS", "capacity_bpd": 4500000, "reliability": 0.80, "sanctioned": true},
+  {"name": "NIOC", "country": "Iran", "iso": "IRN", "capacity_bpd": 3800000, "reliability": 0.60, "sanctioned": true},
+  {"name": "KPC", "country": "Kuwait", "iso": "KWT", "capacity_bpd": 2700000, "reliability": 0.92, "sanctioned": false},
+  {"name": "QatarEnergy", "country": "Qatar", "iso": "QAT", "capacity_bpd": 1300000, "reliability": 0.94, "sanctioned": false},
+  {"name": "NNPC", "country": "Nigeria", "iso": "NGA", "capacity_bpd": 1500000, "reliability": 0.75, "sanctioned": false},
+  {"name": "Petrobras", "country": "Brazil", "iso": "BRA", "capacity_bpd": 2700000, "reliability": 0.88, "sanctioned": false},
+  {"name": "Chevron US", "country": "USA", "iso": "USA", "capacity_bpd": 3000000, "reliability": 0.90, "sanctioned": false}]

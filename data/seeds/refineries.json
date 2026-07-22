@@ -1,0 +1,5 @@
+[{"name": "Jamnagar", "operator": "Reliance", "capacity_bpd": 1240000, "api_min": 18, "api_max": 45, "sulfur_max_pct": 4.0, "lat": 22.34, "lon": 69.83},
+  {"name": "Vadinar", "operator": "Nayara", "capacity_bpd": 405000, "api_min": 18, "api_max": 40, "sulfur_max_pct": 3.5, "lat": 22.46, "lon": 69.72},
+  {"name": "Paradip", "operator": "IOCL", "capacity_bpd": 300000, "api_min": 22, "api_max": 42, "sulfur_max_pct": 3.0, "lat": 20.26, "lon": 86.67},
+  {"name": "Mangalore", "operator": "MRPL", "capacity_bpd": 300000, "api_min": 22, "api_max": 40, "sulfur_max_pct": 2.5, "lat": 12.87, "lon": 74.84},
+  {"name": "Kochi", "operator": "BPCL", "capacity_bpd": 310000, "api_min": 22, "api_max": 42, "sulfur_max_pct": 3.0, "lat": 9.96, "lon": 76.24}]

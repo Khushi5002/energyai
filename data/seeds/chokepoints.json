@@ -1,0 +1,7 @@
+[
+  {"name": "Strait of Hormuz", "lat": 26.57, "lon": 56.25, "criticality": 0.95, "daily_flow_bpd": 21000000},
+  {"name": "Bab-el-Mandeb", "lat": 12.58, "lon": 43.33, "criticality": 0.85, "daily_flow_bpd": 6200000},
+  {"name": "Suez Canal", "lat": 30.55, "lon": 32.35, "criticality": 0.80, "daily_flow_bpd": 5500000},
+  {"name": "Strait of Malacca", "lat": 2.5, "lon": 101.5, "criticality": 0.90, "daily_flow_bpd": 16000000},
+  {"name": "Cape of Good Hope", "lat": -34.35, "lon": 18.47, "criticality": 0.30, "daily_flow_bpd": 5000000}
+]

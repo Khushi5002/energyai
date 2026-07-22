@@ -1,0 +1,10 @@
+[
+  {"name": "Arab Light", "supplier": "Saudi Aramco", "api": 33.0, "sulfur_pct": 1.8},
+  {"name": "Arab Heavy", "supplier": "Saudi Aramco", "api": 27.0, "sulfur_pct": 2.8},
+  {"name": "Murban", "supplier": "ADNOC", "api": 40.0, "sulfur_pct": 0.8},
+  {"name": "Urals", "supplier": "Rosneft", "api": 31.0, "sulfur_pct": 1.3},
+  {"name": "Iranian Heavy", "supplier": "NIOC", "api": 30.0, "sulfur_pct": 1.7},
+  {"name": "Kuwait Export", "supplier": "KPC", "api": 31.0, "sulfur_pct": 2.5},
+  {"name": "Bonny Light", "supplier": "NNPC", "api": 35.0, "sulfur_pct": 0.14},
+  {"name": "Brazilian Lula", "supplier": "Petrobras", "api": 29.0, "sulfur_pct": 0.3}
+]

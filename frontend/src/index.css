@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0B0E14;
+  --panel: #131826;
+  --panel-border: #232a3b;
+  --text-primary: #E8EAED;
+  --text-secondary: #8B93A7;
+  --accent-amber: #D4A24C;
+  --accent-safe: #4FAE8B;
+  --accent-danger: #E85D4A;
+  --accent-warn: #E0A83E;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-mono-data {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.live-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
