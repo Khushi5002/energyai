@@ -290,6 +290,42 @@ VITE_API_URL=http://localhost:8001
 
 Restart Vite after changing a `VITE_` variable.
 
+## Deploy the API to Render
+
+Deploy the backend as a **Web Service** from the repository root. This
+repository includes [`render.yaml`](./render.yaml), which configures Render to
+install the backend dependencies and run the FastAPI ASGI application.
+
+If you configure the service in the Render dashboard instead, use these exact
+values:
+
+| Render setting | Value |
+| --- | --- |
+| Runtime | Python |
+| Build Command | `pip install -r backend/requirements.txt` |
+| Start Command | `cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT` |
+| Health Check Path | `/api/health` |
+
+Do not use `gunicorn your_application.wsgi`: that is Render's generic Django
+example, while this project is a FastAPI application and uses Uvicorn. Keep the
+service root at the repository root (rather than `backend/`), because the API
+also reads the JSON seed files from `data/seeds/`.
+
+Set these environment variables in Render:
+
+- `CORS_ORIGINS` to the exact deployed frontend URL. The included Render
+  Blueprint sets this to `https://energyai-woad.vercel.app`.
+- `GROQ_API_KEY` to enable AI-based scoring and recommendations (optional; the
+  API falls back gracefully without it).
+- `NEWSAPI_KEY` to enable live headlines (optional; bundled headlines are used
+  without it).
+
+After saving the start command or committing the Blueprint, select **Manual
+Deploy → Deploy latest commit**. A successful deploy responds at
+`https://<your-render-service>.onrender.com/api/health` with
+`{"healthy": true}`. Render requires web services to bind to its `PORT`
+environment variable, which the configured Uvicorn command does.
+
 ## Optional supporting services
 
 The dashboard API reads the JSON seed data directly, so Docker services are not required for normal use. MongoDB and Neo4j are only used by `backend/app/seed.py`; Redis and Qdrant are provisioned for future integrations.
